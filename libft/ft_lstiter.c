@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/03/31 10:16:56 by crtorres         ###   ########.fr       */
+/*   Created: 2022/09/26 16:57:27 by crtorres          #+#    #+#             */
+/*   Updated: 2022/09/30 15:39:44 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_stack		*a;
-
-	if (argv < 1)
-		exit_error("Invalid numbers of arguments\n");
-	if (argv == 1)
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		(f)(lst-> content);
+		lst = lst -> next;
+	}
 }
