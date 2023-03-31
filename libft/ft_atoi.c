@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 11:16:15 by crtorres          #+#    #+#             */
-/*   Updated: 2022/09/27 16:18:49 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/03/31 17:16:28 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ int	ft_atoi(const char *str)
 		return ((int)b * -1);
 	return ((int) b);
 }
-/*
+
 int	main(void)
 {
 	printf("%d\n", ft_atoi("    --21"));
 	printf("%d\n", atoi("    -21"));
 }
-*/
