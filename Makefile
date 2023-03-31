@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/03/29 14:46:32 by crtorres         ###   ########.fr        #
+#    Updated: 2023/03/30 13:20:43 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBFT = ./libft/libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I inc -I libft
 
-SRC = main.c pipex_utils.c \
+SRC = push_swap.c exit_msg.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
