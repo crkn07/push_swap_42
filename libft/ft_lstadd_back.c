@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 12:20:18 by crtorres          #+#    #+#             */
-/*   Updated: 2023/03/31 17:25:34 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:16:00 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		*lst = new;
 	else
 		ft_lstlast(*lst)-> next = new;
-}
-
-/**
- * It adds a new node to the end of a linked list
- * 
- * @param stack a pointer to a pointer to a t_stack.
- * @param stack_new the new node to add to the end of the list
- * 
- * @return The last element of the list.
- */
-void	ft_add_back(t_stack **stack, t_stack *stack_new)
-{
-	if (!stack)
-		return ;
-	if (!*stack)
-		*stack = stack_new;
-	else
-		(ft_lstlast(*stack))->next = stack_new;
 }

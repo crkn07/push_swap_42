@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/03/31 16:32:52 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:01:18 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,13 @@ typedef struct s_stack
 	long			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-}	t_stack;
+}				t_stack;
 
 void	exit_error(char *msg);
+void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node);
+int		ft_atoi_ps(const char *str);
+t_stack	*ft_stack_new(int content);
+t_stack	*ft_listlast(t_stack *lst);
+void	free_str(char **lst);
 
 #endif

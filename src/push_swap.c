@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/03/31 17:29:19 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:12:05 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,14 @@ int	ft_atoi_ps(const char *str)
 	return (sign * j);
 }
 
+/**
+ * It takes a string of numbers separated by spaces, and returns a linked list
+ * of those numbers
+ * 
+ * @param argv the arguments passed to the program
+ * 
+ * @return A pointer to a stack.
+ */
 t_stack	*swap_spaces_for_nodes(char **argv)
 {
 	t_stack	*a;
@@ -52,17 +60,32 @@ t_stack	*swap_spaces_for_nodes(char **argv)
 	while (tmp[i])
 	{
 		j = ft_atoi_ps(tmp[i]);
-		ft_stacklist_add_back(&a, )
+		ft_stacklist_add_back(&a, ft_stack_new(j));
 	}
+	free_str(tmp);
+	free (tmp);
+	return (a);
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack		*a;
-
+	int			i;
+	int			j;
+	
 	if (argc < 2)
 		exit_error("Invalid numbers of arguments\n");
 	if (argc == 2)
+		a = swap_spaces_for_nodes(argv);
+	else
 	{
-		
+		i = 1;
+		while (i < argc)
+		{
+			j = ft_atoi_ps(argv[i]);
+			ft_stacklist_add_back(&a, ft_stack_new(j));
+			i++;
+		}
 	}
+	return (a);
 }

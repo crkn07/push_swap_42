@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/03/31 16:34:04 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/04 16:04:02 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I inc -I libft
 
-SRC = push_swap.c exit_msg.c \
+SRC = push_swap.c exit_msg.c list_stack_utils.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
@@ -34,7 +34,7 @@ OBJS =  $(addprefix $(DOT_O)/, $(SRC:%.c=%.o))
 all: make_lib $(NAME)
 
 make_lib:
-	@make -C ./libft
+	@make -sC ./libft
 
 $(DOT_O):
 	@mkdir -p $(DOT_O)
@@ -46,7 +46,6 @@ $(DOT_O)/%.o: $(SRC_PATH)/%.c | $(DOT_O)
 
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	clear
 	$(GREEN) "\n👍🏽push_swap succesfully compiled!👍🏽\n " $(RESET)
 
 clean:
