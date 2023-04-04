@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 16:01:18 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/04 18:35:16 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ int		ft_atoi_ps(const char *str);
 t_stack	*ft_stack_new(int content);
 t_stack	*ft_listlast(t_stack *lst);
 void	free_str(char **lst);
+void	ft_free_stack(t_stack **lst);
+int		duplicate_nbr(t_stack *a);
+
 
 #endif

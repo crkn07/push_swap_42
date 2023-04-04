@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/04 16:04:02 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/04 18:34:49 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I inc -I libft
 
-SRC = push_swap.c exit_msg.c list_stack_utils.c \
+SRC = push_swap.c exit_msg.c list_stack_utils.c free_and_exit.c check_numbers.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
