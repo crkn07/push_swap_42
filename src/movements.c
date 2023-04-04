@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_numbers.c                                    :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 17:40:23 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 19:19:58 by crtorres         ###   ########.fr       */
+/*   Created: 2023/04/04 19:04:11 by crtorres          #+#    #+#             */
+/*   Updated: 2023/04/04 19:19:25 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	duplicate_nbr(t_stack *a)
+void	ft_sa(t_stack **a, int i)
 {
 	t_stack	*tmp;
- 
-	while (*a)
-	{
-		tmp = a->next;
-		while (tmp)
-		{
-			if (a->nbr == tmp->nbr)
-				return (1);
-			tmp = tmp->next;
-		}
-		a = a->next;
-	}
-	return (0);
+	
+	if (!*a || !((*a)->next))
+		return ;
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = (*a)->next;
+	(*a)->next = tmp;
+	if (i == 0)
+		write(1, "sa\n", 3);
 }
+
+void	ft_pa(t_stack **a, int i)
+{
+	t_stack	*tmp;
+	
+	if (!*b)
+		return ;
+	tmp = *a;
+	*a = *b;
+	*b = (*b)->next;
+	(*a)->next = tmp;
+	if (i == 0)
+		write(1, "pa\n", 3);
+}
+
