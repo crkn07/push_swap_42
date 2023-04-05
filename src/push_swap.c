@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 18:37:56 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:18:51 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	main(int argc, char **argv)
 	}
 	if (!a || duplicate_nbr(a))
 	{
-		ft_free_stack(a);
+		ft_free_stack(&a);
 		exit_error("no stack o nº duplicado");
 	}
 	return (a);

@@ -6,12 +6,24 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:26:50 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 17:27:59 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:43:44 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+/**
+ * The function adds a new node to the end of a linked list representing a 
+ * stack.
+ * 
+ * @param stack A pointer to a pointer to the first node of a stack 
+ * (i.e. a linked list of nodes).
+ * @param new_node The new node that needs to be added to the end of the stack.
+ * 
+ * @return If the `stack` parameter is `NULL`, the function returns without
+ * doing anything. Otherwise, the function adds the `new_node` to the end of 
+ * the `stack` and does not return anything.
+ */
 void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node)
 {
 	if (!stack)
@@ -22,6 +34,15 @@ void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node)
 		(ft_listlast(*stack))->next = new_node;
 }
 
+/**
+ * The function creates a new stack node with the given content.
+ * 
+ * @param content The content parameter is an integer value that will be 
+ * assigned to the "nbr" field of the newly created t_stack struct.
+ * 
+ * @return The function `ft_stack_new` is returning a pointer to a newly 
+ * created `t_stack` structure.
+ */
 t_stack	*ft_stack_new(int content)
 {
 	t_stack	*new;
@@ -34,6 +55,16 @@ t_stack	*ft_stack_new(int content)
 	return (new);
 }
  
+/**
+ * The function returns the last element of a linked list.
+ * 
+ * @param lst lst is a pointer to the first node of a singly linked list of type
+ * t_stack.
+ * 
+ * @return The function `ft_listlast` returns a pointer to the last node of the
+ * linked list `lst`. If the linked list is empty (i.e., `lst` is `NULL`), the
+ * function returns `0` (or `NULL`).
+ */
 t_stack	*ft_listlast(t_stack *lst)
 {
 	if (!lst)
