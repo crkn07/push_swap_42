@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:26:50 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/10 12:51:40 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:15:14 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node)
 		*stack = new_node;
 	else
 		(ft_listlast(*stack))->next = new_node;
+}
+
+int	ft_listsize(t_stack *lst)
+{
+	size_t	size;
+
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }
 
 /**
@@ -68,7 +81,7 @@ t_stack	*ft_stack_new(int content)
 t_stack	*ft_listlast(t_stack *lst)
 {
 	if (!lst)
-		return (0);
+		return (NULL);
 	while (lst -> next)
 		lst = lst -> next;
 	return (lst);
