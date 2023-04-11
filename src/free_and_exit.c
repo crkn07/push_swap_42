@@ -6,11 +6,11 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:19:15 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 17:28:03 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/10 12:51:35 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ft_free_stack(t_stack **lst)
 {

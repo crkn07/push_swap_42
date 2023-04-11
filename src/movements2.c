@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_numbers.c                                    :+:      :+:    :+:   */
+/*   movements2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/04 17:40:23 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/10 12:51:29 by crtorres         ###   ########.fr       */
+/*   Created: 2023/04/10 15:52:09 by crtorres          #+#    #+#             */
+/*   Updated: 2023/04/10 17:14:39 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	duplicate_nbr(t_stack *a)
+void	ft_push(t_stack **stack_a, t_stack **stack_b, int c)
 {
-	t_stack	*tmp;
- 
-	while (*a)
-	{
-		tmp = a->next;
-		while (tmp)
-		{
-			if (a->nbr == tmp->nbr)
-				return (1);
-			tmp = tmp->next;
-		}
-		a = a->next;
-	}
-	return (0);
+	t_stack *tmp;
+	
 }

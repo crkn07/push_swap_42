@@ -6,29 +6,28 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:04:11 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/05 17:43:21 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:21:19 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 /**
- * The function swaps the top two elements of a stack and prints a 
- * corresponding
- * message depending on the stack being operated on.
+ * The function swaps the top two elements of a stack and prints the corresponding
+ * command.
  * 
- * @param stack A pointer to a pointer to a struct representing a stack.
- * @param c The parameter "c" is a character that specifies which stack to 
- * perform the swap operation on. It can be either 'a' or 'b', indicating 
- * whether the operation is to be performed on stack A or stack B.
+ * @param stack A pointer to a pointer to a struct of type t_stack, which
+ * represents a stack data structure.
+ * @param c The parameter "c" is an integer that is used to determine which stack
+ * is being swapped. If c is 0, it means we are swapping the first stack (stack A),
+ * and if c is 1, it means we are swapping the second stack (stack B).
  * 
- * @return If the condition `if (!*stack || !((*stack)->next))` is true, then
- * nothing is returned and the function exits. Otherwise, the function swaps 
- * the top two elements of the stack and prints "sa\n" or "sb\n" depending 
- * on the value of the parameter `c`. However, the function does not explicitly 
- * return anything.
+ * @return If the condition `if (!*stack || !((*stack)->next))` is true, then the
+ * function will return without doing anything. Otherwise, the function will swap
+ * the top two elements of the stack and print "sa\n" if `c` is 0 or "sb\n" if `c`
+ * is 1. However, the function does not have a return type specified, so
  */
- void	ft_swap(t_stack **stack, char c)
+ void	ft_swap(t_stack **stack, int c)
  {
 	t_stack	*tmp;
 	
@@ -37,49 +36,55 @@
 	tmp = *stack;
 	*stack = (*stack)->next;
 	(*stack)->next = tmp;
-	if (c == 'a')
+	if (c == 0)
 		write(1, "sa\n", 3);
-	else if (c == 'b')
+	else if (c == 1)
 		write(1, "sb\n", 3);		
  }
 
- /**
-  * The function `ft_swap_ab` swaps the top elements of two stacks and 
-  * prints "ss".
-  * 
-  * @param stack_a A pointer to a stack A, which is a linked list of integers.
-  * @param stack_b The parameter `stack_b` is a pointer to a pointer to a 
-  * `t_stack` struct. It is likely being used to represent a second stack in 
-  * a stack-based algorithm or data structure.
-  */
+/**
+ * The function `ft_swap_ab` swaps the top two elements of both stacks and prints
+ * "ss".
+ * 
+ * @param stack_a A pointer to a stack (presumably stack A) that needs to be
+ * swapped with another stack (presumably stack B).
+ * @param stack_b The parameter `stack_b` is a pointer to a pointer to a `t_stack`
+ * struct. It is likely being used to represent a stack data structure in a sorting
+ * algorithm.
+ */
  void	ft_swap_ab(t_stack **stack_a, t_stack **stack_b)
  {
-	ft_swap(stack_a, NULL);
-	ft_swap(stack_b, NULL);
+	ft_swap(stack_a, 0);
+	ft_swap(stack_b, 1);
 	write(1, "ss\n", 3);
  }
 
 /**
  * The function rotates a stack by moving the first element to the end.
  * 
- * @param stack A pointer to a stack, which is a linked list of integers.
- * @param c The character 'c' represents which stack to rotate, either stack A or
- * stack B. If 'c' is 'a', then stack A is rotated, and if 'c' is 'b', then stack B
- * is rotated.
+ * @param stack The parameter "stack" is a pointer to a pointer to a struct of type
+ * "t_stack". This is likely a linked list implementation of a stack data
+ * structure.
+ * @param c The parameter "c" is an integer that determines which stack to rotate.
+ * If c is 0, then the "stack" parameter is the stack A that needs to be rotated.
+ * If c is 1, then the "stack" parameter is the stack B that needs to be rotated.
+ * 
+ * @return The function does not return anything, it is a void function.
  */
-void	ft_rotate(t_stack **stack, char c)
+void	ft_rotate(t_stack **stack, int c)
 {
-	t_stack	*last;
 	t_stack	*tmp;
 	
-	(*tmp) = (*stack);
-	(*last) = ft_listlast(tmp);
-	last->next = (*stack);
-	(*stack) = (*tmp)->next;
+	if (!*stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	*stack = ft_listlast(*stack);
+	(*stack)->next = tmp;
+	(*stack) = tmp->next;
 	tmp->next = NULL;
-	if (c == 'a')
+	if (c == 0)
 		write(1, "ra\n", 3);
-	else if (c == 'b')
+	else if (c == 1)
 		write(1, "rb\n", 3);
 }
 
@@ -95,8 +100,8 @@ void	ft_rotate(t_stack **stack, char c)
  */
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_rotate(stack_a, NULL);
-	ft_rotate(stack_b, NULL);
+	ft_rotate(stack_a, 0);
+	ft_rotate(stack_b, 1);
 	write(1, "rr\n", 3);
 }
 
@@ -161,7 +166,7 @@ void	ft_pa(t_stack **a, int i)
 		write(1, "pa\n", 3);
 }
 
-void	ft_ra(t_stack **a, int i)
+/* void	ft_ra(t_stack **a, int i)
 {
 	t_stack	*tmp;
 
@@ -173,7 +178,7 @@ void	ft_ra(t_stack **a, int i)
 	tmp->next = NULL;
 	if (i == 0)
 		write(1, "ra\n", 3);
-}
+} */
 
 /* 
 	if (c == 'a')

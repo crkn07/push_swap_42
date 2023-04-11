@@ -6,11 +6,11 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:26:50 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/05 14:58:43 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/10 12:51:40 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 /**
  * The function adds a new node to the end of a linked list representing a 

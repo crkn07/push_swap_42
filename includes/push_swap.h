@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 18:35:16 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/10 14:31:46 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft.h"
+# include "../libft/libft.h"
 
 //===SETTINGS COLORS===/
 //===Color font code===/
@@ -66,6 +66,7 @@ t_stack	*ft_listlast(t_stack *lst);
 void	free_str(char **lst);
 void	ft_free_stack(t_stack **lst);
 int		duplicate_nbr(t_stack *a);
+int		ft_is_sorted(t_stack *stack_a);
 
 
 #endif

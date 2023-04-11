@@ -6,11 +6,11 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/05 11:18:51 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/10 14:32:25 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_atoi_ps(const char *str)
 {
@@ -92,5 +92,7 @@ int	main(int argc, char **argv)
 		ft_free_stack(&a);
 		exit_error("no stack o nº duplicado");
 	}
-	return (a);
+	if (!ft_is_sorted(a))
+		
+	return (0);
 }

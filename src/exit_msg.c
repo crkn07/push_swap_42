@@ -6,11 +6,11 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:17:40 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/04 16:02:03 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/10 12:51:14 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../includes/push_swap.h"
 
 void	exit_error(char *msg)
 {
