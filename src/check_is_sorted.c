@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/11 20:53:59 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:59:32 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,6 @@ t_stack	*sorted_stack_b(t_stack **stack_a)
 	while (ft_listsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
 		ft_push_ab(stack_a, &stack_b, 1);
 	if (ft_listsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
-	if (!ft_checksorted(*stack_a))
+	if (!ft_is_sorted(*stack_a))
 	return (stack_b);
 }

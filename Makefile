@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/11 17:39:07 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/12 16:07:11 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ CFLAGS = -Wall -Wextra -Werror -I inc -I libft
 
 SRC = push_swap.c exit_msg.c list_stack_utils.c free_and_exit.c \
 		check_numbers.c check_is_sorted.c movements.c movements2.c \
-		list_stack_utils2.c sort_quicksort.c \
+		list_stack_utils2.c sort_quicksort.c checkindex_instack.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
