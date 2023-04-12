@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:19:32 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/11 17:18:32 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/11 21:30:14 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,32 @@ void	ft_stacklist_add_front(t_stack **stack, t_stack *new_node)
 		new_node->next = *stack;
 		*stack = new_node;
 	}
+}
+
+int	ft_min_int(t_stack *stack)
+{
+	int	i;
+
+	i = stack->nbr;
+	while (stack)
+	{
+		if (stack->nbr < i)
+			i = stack->nbr;
+		stack = stack->next;
+	}
+	return (i);
+}
+
+int	ft_max_int(t_stack *stack)
+{
+	int	i;
+
+	i = stack->nbr;
+	while (stack)
+	{
+		if (stack->nbr > i)
+			i = stack->nbr;
+		stack = stack->next;
+	}
+	return (i);
 }
