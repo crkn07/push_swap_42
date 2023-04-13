@@ -6,61 +6,67 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:22:43 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/13 15:31:41 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:37:46 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	times_rotate_ab(t_stack **stack_a, t_stack **stack_b, int j)
+int	times_rotate_stacks(t_stack **stack_1, t_stack **stack_2, int j)
 {
 	int	i;
 
-	i = checkplace_instack(stack_b, j);
-	if (i < index_in_stack(stack_a, j))
-		i = index_in_stack(stack_a, j);
+	i = checkplace_instack(stack_2, j);
+	if (i < index_in_stack(stack_1, j))
+		i = index_in_stack(stack_1, j);
 	return (i);
 }
 
-int	times_reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b, int j)
+int	times_reverse_rotate_stacks(t_stack **stack_1, t_stack **stack_2, int j)
 {
 	int	i;
 
 	i = 0;
-	if (checkplace_instack(stack_b, j))
-		i = ft_listsize(stack_b) - checkplace_instack(stack_b, j);
-	if ((i < (ft_listsize(stack_a) - index_in_stack(stack_a, j)))
-		&& index_in_stack(stack_a, j))
-		i = ft_listsize(stack_a) - index_in_stack(stack_a, j);
+	if (checkplace_instack(stack_2, j))
+		i = ft_listsize(stack_2) - checkplace_instack(stack_2, j);
+	if ((i < (ft_listsize(stack_1) - index_in_stack(stack_1, j)))
+		&& index_in_stack(stack_1, j))
+		i = ft_listsize(stack_1) - index_in_stack(stack_1, j);
 	return (i);
 }
 
-int	times_rra_rb(t_stack **stack_a, t_stack **stack_b, int j)
+int	times_rra_rb(t_stack **stack_1, t_stack **stack_2, int j)
 {
 	int	i;
 	
 	i = 0;
-	if (index_in_stack(stack_a, j))
-		i = ft_listsize(stack_a) - index_in_stack(stack_a, j);
-	i = checkplace_instack(stack_b, j) - i;
+	if (index_in_stack(stack_1, j))
+		i = ft_listsize(stack_1) - index_in_stack(stack_1, j);
+	i = checkplace_instack(stack_2, j) - i;
 	return (i);
 }
 
-int	times_ra_rrb(t_stack **stack_a, t_stack **stack_b, int j)
+int	times_ra_rrb(t_stack **stack_1, t_stack **stack_2, int j)
 {
 	int	i;
 
 	i = 0;
-	if (checkplace_instack(stack_b, j))
-		i = ft_listsize(stack_b) - checkplace_instack(stack_b, j);
-	i = index_in_stack(stack_a, j) - i;
+	if (checkplace_instack(stack_2, j))
+		i = ft_listsize(stack_2) - checkplace_instack(stack_2, j);
+	i = index_in_stack(stack_1, j) - i;
 }
 
-int	what_type_rotate_ab(t_stack **stack_a, t_stack **stack_b)
+int	what_type_rotate_ab(t_stack *stack_a, t_stack *stack_b)
 {
 	int	i;
 	t_stack	*tmp;
 
-	tmp = stack_b;
-	
+	tmp = stack_a;
+	i = times_reverse_rotate_stacks(stack_a, stack_b, stack_a->nbr);
+	while (tmp)
+	{
+		if (i > times_rotate_stacks(stack_a, stack_b, tmp->nbr))
+			i = times_rotate_stacks(stack_a, stack_b, tmp->nbr);
+		if (i > )
+	}
 }
