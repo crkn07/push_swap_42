@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/12 17:59:32 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/13 12:20:19 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,19 @@ int	ft_is_sorted(t_stack *stack_a)
 	}
 	return (1);
 }
+//?falta completar las funciones
+void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
+{
+	int		i;
+	t_stack	*tmp;
 
+	while (ft_listsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
+	{
+		tmp = stack_a;
+		i = 
+	}
+}
+//?falta completar las funciones
 t_stack	*sorted_stack_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
