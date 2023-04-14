@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/13 17:25:11 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:00:15 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		ft_is_sorted(t_stack *stack_a);
 int		ft_listsize(t_stack *lst);
 void	ft_push_ab(t_stack **stack_a, t_stack **stack_b, int c);
 void	ft_swap_ab(t_stack **stack, int c);
+void	ft_rotate(t_stack **stack, int c);
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void	ft_reverse_rotate(t_stack **stack, int c);
 t_stack	*sorted_stack_b(t_stack **stack_a);
@@ -78,6 +79,9 @@ int		ft_max_int(t_stack *stack);
 int		ft_min_int(t_stack *stack);
 int		checkplace_instack(t_stack *stack, int nbr_push);
 int		index_in_stack(t_stack *stack, int num);
+int		times_rotate_stacks(t_stack **stack_1, t_stack **stack_2, int j);
 int		what_type_rotate_ab(t_stack **stack_a, t_stack **stack_b);
+int		do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
+void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 
 #endif

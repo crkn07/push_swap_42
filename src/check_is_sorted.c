@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/13 17:24:50 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:37:37 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
 
 	while (ft_listsize(*stack_a) > 3 && !ft_is_sorted(*stack_a))
 	{
-		tmp = stack_a;
-		i = what_type_rotate_ab
+		tmp = *stack_a;
+		i = what_type_rotate_ab(stack_a, stack_b);
+		while (i <= 0)
+		{
+			if (i == times_rotate_stacks(stack_a, stack_b, tmp->nbr))
+				i = do_rot_push_stacks;
+		}
 	}
 }
 //?falta completar las funciones

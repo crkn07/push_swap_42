@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:04:11 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/12 14:38:13 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/14 16:03:21 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	ft_rotate(t_stack **stack, int c)
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b)
 {
 	ft_rotate(stack_a, 2);
-	ft_rotate(stack_b, 1);
+	ft_rotate(stack_b, 2);
 	write(1, "rr\n", 3);
 }
 
