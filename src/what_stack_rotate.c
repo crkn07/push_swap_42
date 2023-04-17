@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:22:43 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/13 17:37:46 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/16 12:53:50 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int	times_reverse_rotate_stacks(t_stack **stack_1, t_stack **stack_2, int j)
 	return (i);
 }
 
-int	times_rra_rb(t_stack **stack_1, t_stack **stack_2, int j)
+int	times_revrotA_rotB(t_stack **stack_1, t_stack **stack_2, int j)
 {
 	int	i;
-	
+
 	i = 0;
 	if (index_in_stack(stack_1, j))
 		i = ft_listsize(stack_1) - index_in_stack(stack_1, j);
@@ -46,7 +46,7 @@ int	times_rra_rb(t_stack **stack_1, t_stack **stack_2, int j)
 	return (i);
 }
 
-int	times_ra_rrb(t_stack **stack_1, t_stack **stack_2, int j)
+int	times_rotA_revrotB(t_stack **stack_1, t_stack **stack_2, int j)
 {
 	int	i;
 
@@ -67,6 +67,35 @@ int	what_type_rotate_ab(t_stack *stack_a, t_stack *stack_b)
 	{
 		if (i > times_rotate_stacks(stack_a, stack_b, tmp->nbr))
 			i = times_rotate_stacks(stack_a, stack_b, tmp->nbr);
-		if (i > )
+		if (i > times_reverse_rotate_stacks(stack_a, stack_b, tmp->nbr))
+			i = times_reverse_rotate_stacks(stack_a, stack_b, tmp->nbr);
+		if (i > times_revrotA_rotB(stack_a, stack_b, tmp->nbr))
+			i = times_revrotA_rotB(stack_a, stack_b, tmp->nbr);
+		if (i > times_rotA_revrotB(stack_a, stack_a, tmp->nbr))
+			i = times_rotA_revrotB(stack_a, stack_a, tmp->nbr);
+		tmp = tmp->next;
 	}
+	return (i);
+}
+
+int	what_type_rotate_ba(t_stack *stack_a, t_stack *stack_b)
+{
+	int	i;
+	t_stack	*tmp;
+
+	tmp = stack_b;
+	i = times_reverse_rotate_stacks(stack_b, stack_a, stack_b->nbr);
+	while (tmp)
+	{
+		if (i > times_rotate_stacks(stack_b, stack_a, tmp->nbr))
+			i = times_rotate_stacks(stack_b, stack_a, tmp->nbr);
+		if (i > times_reverse_rotate_stacks(stack_b, stack_a, tmp->nbr))
+			i = times_reverse_rotate_stacks(stack_b, stack_a, tmp->nbr);
+		if (i > times_revrotA_rotB(stack_a, stack_b, tmp->nbr))
+			i = times_revrotA_rotB(stack_a, stack_b, tmp->nbr);
+		if (i > times_rotA_revrotB(stack_a, stack_a, tmp->nbr))
+			i = times_rotA_revrotB(stack_a, stack_a, tmp->nbr);
+		tmp = tmp->next;
+	}
+	return (i);
 }
