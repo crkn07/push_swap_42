@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:34:39 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/12 17:50:54 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:03:25 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	index_in_stack(t_stack *stack, int num)
 	i = 0;
 	while (stack->nbr != num)
 	{
-		stack = stack->next;
 		i++;
+		stack = stack->next;
 	}
 	stack->index = 0;
 	return (i);

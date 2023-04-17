@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:19:15 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/13 11:50:45 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:36:59 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_free_stack(t_stack **lst)
 		return ;
 	while (*lst)
 	{
-		tmp = (*lst)-> next;
+		tmp = (*lst)->next;
 		(*lst)->nbr = 0;
 		free(*lst);
 		*lst = tmp;

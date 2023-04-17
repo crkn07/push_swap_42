@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:52:09 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/12 14:41:05 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:37:06 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,18 @@ void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
 	write(1, "rrr\n", 4);
 }
 
-/**
- * The function `ft_push` takes two stacks and an integer as input, pops the 
- * top element from the first stack and pushes it onto the second stack, and 
- * prints "pa" or "pb" depending on the value of the integer.
- * 
- * @param stack_a A pointer to a stack (linked list) representing stack A in a
- * push-swap program.
- * @param stack_b The parameter `stack_b` is a pointer to a pointer to a 
- * `t_stack` struct, which represents a stack in a stack-based data structure. 
- * It is used in the `ft_push` function to push the top element of `stack_a` 
- * onto `stack_b`.
- * @param c The parameter "c" is an integer that is used to determine whether 
- * the function is pushing to stack A or stack B. If c is equal to 0, the 
- * function is pushing to stack A, and if c is equal to 1, the function is 
- * pushing to stack B.
- */
 void	ft_push(t_stack **stack_a, t_stack **stack_b, int c)
 {
 	t_stack *tmp;
 	
-	if (stack_a && *stack_a)
+	if (!stack_a)
+		return ;
+	if (stack_a)
 	{
 		tmp = *stack_a;
-		*stack_a = (*stack_a)->next;
-		ft_stacklist_add_front(&*stack_b, tmp);
+		*stack_a = *stack_b;
+		*stack_b = (*stack_b)->next;
+		(*stack_a)->next = tmp;
 		if (c == 0)
 			write(1, "pa\n", 3);
 		if (c == 1)

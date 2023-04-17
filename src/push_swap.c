@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/10 14:32:25 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:13:11 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int	ft_atoi_ps(const char *str)
 	sign = 1;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
-	if (str[i++] == '-')
+	if (str[i] == '-')
+	{
 		sign = -1;
+		i++;	
+	}
 	else if (str[i] == '+')
 		i++;
 	while (str[i])
@@ -36,6 +39,7 @@ int	ft_atoi_ps(const char *str)
 	}
 	if ((sign * j) > 2147483647 || (sign * j) < -2147483648)
 		exit_error("the number must be between the MAX and MIN value of int\n");
+		printf("sign = %lld\n", j);
 	return (sign * j);
 }
 
@@ -61,38 +65,66 @@ t_stack	*swap_spaces_for_nodes(char **argv)
 	{
 		j = ft_atoi_ps(tmp[i]);
 		ft_stacklist_add_back(&a, ft_stack_new(j));
+		i++;
 	}
 	free_str(tmp);
 	free (tmp);
 	return (a);
 }
 
-int	main(int argc, char **argv)
+/**
+ * The function checks the arguments passed to the program and creates a stack
+ * based on the arguments.
+ * 
+ * @param argc The number of arguments passed to the program, including the name of
+ * the program itself.
+ * @param argv An array of strings containing the command line arguments passed to
+ * the program, where each string represents a number to be sorted by the program.
+ * 
+ * @return The function `check_args_create_stack` is returning a pointer to a
+ * `t_stack` struct.
+ */
+t_stack	*check_args_create_stack(int argc, char **argv)
 {
-	t_stack		*a;
+	t_stack		*stack_a;
 	int			i;
 	int			j;
-	
+
+	i = 1;
+	j = 0;
+	stack_a = NULL;
 	if (argc < 2)
 		exit_error("Invalid numbers of arguments\n");
 	if (argc == 2)
-		a = swap_spaces_for_nodes(argv);
+		stack_a = swap_spaces_for_nodes(argv);
 	else
 	{
-		i = 1;
-		while (i < argc)
+		while (i < argc)								//! attendre
 		{
 			j = ft_atoi_ps(argv[i]);
-			ft_stacklist_add_back(&a, ft_stack_new(j));
+			ft_stacklist_add_back(&stack_a, ft_stack_new(j));
+			printf("%d\n", j);
 			i++;
 		}
 	}
-	if (!a || duplicate_nbr(a))
+	return (stack_a);
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack		*stack_a;
+	
+	stack_a = check_args_create_stack(argc, argv);
+	if (!stack_a || duplicate_nbr(stack_a))
 	{
-		ft_free_stack(&a);
+		ft_free_stack(&stack_a);
 		exit_error("no stack o nº duplicado");
 	}
-	if (!ft_is_sorted(a))
-		
+	if (!ft_is_sorted(stack_a))
+	{
+		//printf("entra\n");
+		sort_with_quicksort(&stack_a);
+	}
+	ft_free_stack(&stack_a);
 	return (0);
 }

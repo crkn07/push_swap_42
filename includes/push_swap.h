@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/16 12:16:28 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:40:54 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_stack
 	long			index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-}				t_stack;
+}	t_stack;
 
 void	exit_error(char *msg);
 void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node);
@@ -76,13 +76,15 @@ void	ft_rotate(t_stack **stack, int c);
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void	ft_reverse_rotate(t_stack **stack, int c);
 t_stack	*sorted_stack_b(t_stack **stack_a);
+t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b);
 int		ft_max_int(t_stack *stack);
 int		ft_min_int(t_stack *stack);
 int		checkplace_instack(t_stack *stack, int nbr_push);
 int		index_in_stack(t_stack *stack, int num);
-int		times_rotate_stacks(t_stack **stack_1, t_stack **stack_2, int j);
-int		times_revrotA_rotB(t_stack **stack_1, t_stack **stack_2, int j);
-int		times_rotA_revrotB(t_stack **stack_1, t_stack **stack_2, int j);
+int		times_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j);
+int		times_reverse_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j);
+int		times_revrota_rotb(t_stack *stack_1, t_stack *stack_2, int j);
+int		times_rot_a_revrotb(t_stack *stack_1, t_stack *stack_2, int j);
 int		what_type_rotate_ab(t_stack *stack_a, t_stack *stack_b);
 int		what_type_rotate_ba(t_stack *stack_a, t_stack *stack_b);
 int		do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
@@ -90,6 +92,6 @@ int		do_revrot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
 int		do_revrot_a_rev_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 int		do_rot_a_revrot_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
-int		times_reverse_rotate_stacks(t_stack **stack_1, t_stack **stack_2, int j);
+void	sort_with_quicksort(t_stack **stack_a);
 
 #endif
