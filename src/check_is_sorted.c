@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/17 15:39:44 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:27:09 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
 		i = what_type_rotate_ab(*stack_a, *stack_b);
 		while (i <= 0)
 		{
-			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr))
+			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
-			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr))
+			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
-			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr))
+			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'A');
-			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr))
+			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'A');
 			else
 				tmp = tmp->next;
@@ -78,23 +78,26 @@ t_stack	*sorted_stack_b(t_stack **stack_a)
 
 t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
+	int		i;
 	t_stack	*tmp;
 
 	while (*stack_b)
 	{
 		tmp = *stack_b;
 		i = what_type_rotate_ba(*stack_a, *stack_b);
-		printf("entra\n");
+		//!printf("entra\n");
 		while (i >= 0)
 		{
-			if (i == times_rotate_stacks(*stack_b, *stack_a, tmp->nbr))
+			if (i == times_rotate_stacks(*stack_b, *stack_a, tmp->nbr, 'A'))
+			{
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_reverse_rotate_stacks(*stack_b, *stack_a, tmp->nbr))
+				printf("entra\n");
+			}
+			else if (i == times_reverse_rotate_stacks(*stack_b, *stack_a, tmp->nbr, 'A'))
 				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr))
+			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr))
+			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'B');
 			else
 				tmp = tmp->next;

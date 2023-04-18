@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:34:39 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/17 16:03:25 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:53:26 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,46 @@ int	index_in_stack(t_stack *stack, int num)
  * @return an integer value, which represents the index at which a given number
  * should be pushed into a stack.
  */
-int	checkplace_instack(t_stack *stack, int nbr_push)
+int	checkplace_instack(t_stack *stack_a, int nbr_push)
 {
 	int	i;
 	t_stack *tmp;
 
 	i = 1;
-	if (nbr_push < stack->nbr && nbr_push > ft_listlast(stack)->nbr)
+	if (nbr_push < stack_a->nbr && nbr_push > ft_listlast(stack_a)->nbr)
+	{
+		i = 0;
+	}
+	else if (nbr_push > ft_max_int(stack_a) || nbr_push < ft_min_int(stack_a))
+		i = index_in_stack(stack_a, ft_min_int(stack_a));
+	else
+	{
+		tmp = stack_a->next;
+		while (stack_a->nbr > nbr_push || tmp->nbr < nbr_push)
+		{
+			stack_a = stack_a->next;
+			tmp = stack_a->next;
+			i++;
+		}
+		//!printf("%ld\n", tmp->nbr);
+	}
+	return (i);
+}
+
+int	checkplace_instack_b(t_stack *stack, int nbr_push)
+{
+	int	i;
+	t_stack *tmp;
+
+	i = 1;
+	if (nbr_push > stack->nbr && nbr_push < ft_listlast(stack)->nbr)
 		i = 0;
 	else if (nbr_push > ft_max_int(stack) || nbr_push < ft_min_int(stack))
-		i = index_in_stack(stack, ft_min_int(stack));
+		i = index_in_stack(stack, ft_max_int(stack));
 	else
 	{
 		tmp = stack->next;
-		while (stack->index > nbr_push || tmp->nbr < nbr_push)
+		while (stack->nbr < nbr_push || tmp->nbr > nbr_push)
 		{
 			stack = stack->next;
 			tmp = stack->next;

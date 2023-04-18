@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/17 11:20:42 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/18 12:54:41 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,13 +34,13 @@ SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
 OBJS =  $(addprefix $(DOT_O)/, $(SRC:%.c=%.o))
 
-all: make_lib $(NAME)
+all: make_lib $(NAME) $(DOT_O)
 
 make_lib:
 	@make -sC ./libft
 
 $(DOT_O):
-	@mkdir -p $(DOT_O)
+	@mkdir $(DOT_O)
 # The -p flag will create nested directories, but only if they don't 
 # exist already.
 

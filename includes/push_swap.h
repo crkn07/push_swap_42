@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/17 14:40:54 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:44:25 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,12 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b);
 int		ft_max_int(t_stack *stack);
 int		ft_min_int(t_stack *stack);
 int		checkplace_instack(t_stack *stack, int nbr_push);
+int		checkplace_instack_b(t_stack *stack, int nbr_push);
 int		index_in_stack(t_stack *stack, int num);
-int		times_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j);
-int		times_reverse_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j);
-int		times_revrota_rotb(t_stack *stack_1, t_stack *stack_2, int j);
-int		times_rot_a_revrotb(t_stack *stack_1, t_stack *stack_2, int j);
+int		times_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j, char c);
+int		times_reverse_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j, char c);
+int		times_revrota_rotb(t_stack *stack_1, t_stack *stack_2, int j, char c);
+int		times_rot_a_revrotb(t_stack *stack_1, t_stack *stack_2, int j, char c);
 int		what_type_rotate_ab(t_stack *stack_a, t_stack *stack_b);
 int		what_type_rotate_ba(t_stack *stack_a, t_stack *stack_b);
 int		do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
