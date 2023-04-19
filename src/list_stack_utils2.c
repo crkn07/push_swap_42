@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:19:32 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/12 17:34:35 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:25:55 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,33 @@ void	ft_stacklist_add_front(t_stack **stack, t_stack *new_node)
 /**
  * The function returns the minimum integer value in a given stack.
  * 
- * @param stack The parameter "stack" is a pointer to a linked list of integers.
- * Each node in the linked list contains an integer value and a pointer to the 
- * next node in the list. The function is designed to find the minimum integer 
- * value in the linked list.
+ * @param stack The parameter "stack" is a pointer to a linked list data structure,
+ * specifically a stack. Each node in the stack contains an integer value "nbr" and
+ * a pointer to the next node in the stack. The function "ft_min_int" is designed
+ * to traverse the stack and return the minimum integer
  * 
- * @return The function `ft_min_int` is returning the minimum integer value 
- * present in the given `t_stack` linked list.
+ * @return The function `ft_min_int` is returning the minimum integer value present
+ * in the given `t_stack` linked list.
  */
 int	ft_min_int(t_stack *stack)
 {
 	int	i;
 
 	i = stack->nbr;
+	/* printf("Stack: %li\n", stack->nbr);
+	stack = stack->next;
+	printf("Stack: %li\n", stack->nbr);
+	stack = stack->next;
+	printf("Stack: %li\n", stack->nbr); */
 	while (stack)
 	{
 		if (stack->nbr < i)
 			i = stack->nbr;
+		//printf("Stack: %li\n", stack->nbr);
 		stack = stack->next;
 	}
+	//printf("I: %d\n", i);
+	//printf("entra\n");
 	return (i);
 }
 

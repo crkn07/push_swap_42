@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:34:39 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/18 18:53:26 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:00:38 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	index_in_stack(t_stack *stack, int num)
 	int	i;
 
 	i = 0;
+	//!printf("entra\n");
 	while (stack->nbr != num)
 	{
 		i++;
@@ -51,9 +52,7 @@ int	checkplace_instack(t_stack *stack_a, int nbr_push)
 
 	i = 1;
 	if (nbr_push < stack_a->nbr && nbr_push > ft_listlast(stack_a)->nbr)
-	{
 		i = 0;
-	}
 	else if (nbr_push > ft_max_int(stack_a) || nbr_push < ft_min_int(stack_a))
 		i = index_in_stack(stack_a, ft_min_int(stack_a));
 	else
@@ -65,10 +64,10 @@ int	checkplace_instack(t_stack *stack_a, int nbr_push)
 			tmp = stack_a->next;
 			i++;
 		}
-		//!printf("%ld\n", tmp->nbr);
 	}
 	return (i);
 }
+
 
 int	checkplace_instack_b(t_stack *stack, int nbr_push)
 {

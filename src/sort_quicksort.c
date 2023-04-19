@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:58:58 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/18 14:58:12 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:04:34 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	sort_with_quicksort(t_stack **stack_a)
 	{
 		stack_b = sorted_stack_b(stack_a);
 		stack_a = sort_stack_a(stack_a, &stack_b);
-		//!printf("entra\n");
 		i = index_in_stack(*stack_a, ft_min_int(*stack_a));
 		if (i < ft_listsize(*stack_a) - i)
 		{

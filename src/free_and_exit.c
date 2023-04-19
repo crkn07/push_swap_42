@@ -6,25 +6,25 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:19:15 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/17 14:36:59 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:29:27 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // * The function frees a stack by iterating through it and freeing each node.
-void	ft_free_stack(t_stack **lst)
+void	ft_free_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!lst)
+	if (!stack)
 		return ;
-	while (*lst)
+	while (*stack)
 	{
-		tmp = (*lst)->next;
-		(*lst)->nbr = 0;
-		free(*lst);
-		*lst = tmp;
+		tmp = (*stack)->next;
+		(*stack)->nbr = 0;
+		free(*stack);
+		*stack = tmp;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/18 18:27:09 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:04:11 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,11 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 	{
 		tmp = *stack_b;
 		i = what_type_rotate_ba(*stack_a, *stack_b);
-		//!printf("entra\n");
 		while (i >= 0)
 		{
-			if (i == times_rotate_stacks(*stack_b, *stack_a, tmp->nbr, 'A'))
-			{
+			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-				printf("entra\n");
-			}
-			else if (i == times_reverse_rotate_stacks(*stack_b, *stack_a, tmp->nbr, 'A'))
+			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
 			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'B');
@@ -102,6 +98,7 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 			else
 				tmp = tmp->next;
 		}
+		//printf("estack b %ld\n", (*stack_b)->nbr);
 	}
 	return (stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:04:11 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/14 16:03:21 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:46:05 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@
  */
 void	ft_swap(t_stack **stack, int c)
  {
-	t_stack	*tmp;
+	long	tmp;
 	
 	if (!*stack || !((*stack)->next))
 		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	(*stack)->next = tmp;
+	tmp = (*stack)->nbr;
+	(*stack)->nbr = (*stack)->next->nbr;
+	(*stack)->next->nbr = tmp;
 	if (c == 0)
 		write(1, "sa\n", 3);
 	else if (c == 1)
@@ -142,7 +142,7 @@ void	ft_reverse_rotate(t_stack **stack, int c)
 		tmp = tmp->next;
 	tmp->next = NULL;
 	ft_stacklist_add_front(stack, last);
-	free(last);
+	//!free(last);
 	if (c == 0)
 		write(1, "rra\n", 4);
 	if (c == 1)
