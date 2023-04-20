@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/18 12:54:41 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/20 16:27:02 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBFT = ./libft/libft.a
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I inc -I libft
+CFLAGS = -I inc -I libft -Wall -Wextra -Werror 
 
 SRC = push_swap.c exit_msg.c list_stack_utils.c list_stack_utils2.c \
 		free_and_exit.c check_numbers.c check_is_sorted.c movements.c \

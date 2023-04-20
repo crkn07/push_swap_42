@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/19 18:09:43 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:56:29 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,11 @@ typedef struct s_stack
 void	exit_error(char *msg);
 void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node);
 void	ft_stacklist_add_front(t_stack **stack, t_stack *new_node);
-int		ft_atoi_ps(const char *str);
-t_stack	*ft_stack_new(int content);
+int		ft_atoi_ps(char *str);
+t_stack	*ft_new_stack(int content);
 t_stack	*ft_listlast(t_stack *lst);
-void	free_str(char **lst);
+//!void	free_str(char **lst);
+void	free_matrix(char **c);
 void	ft_free_stack(t_stack **stack);
 int		duplicate_nbr(t_stack *a);
 int		ft_is_sorted(t_stack *stack_a);
@@ -80,7 +81,7 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b);
 int		ft_max_int(t_stack *stack);
 int		ft_min_int(t_stack *stack);
 int		checkplace_instack(t_stack *stack, int nbr_push);
-int		checkplace_instack_b(t_stack *stack, int nbr_push);
+int		checkplace_instack_a(t_stack *stack, int nbr_push);
 int		index_in_stack(t_stack *stack, int num);
 int		times_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j, char c);
 int		times_reverse_rotate_stacks(t_stack *stack_1, t_stack *stack_2, int j, char c);
@@ -94,5 +95,6 @@ int		do_revrot_a_rev_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 int		do_rot_a_revrot_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 void	sort_with_quicksort(t_stack **stack_a);
+int		ft_is_nbr_space_valid(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:26:50 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/17 13:09:16 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/20 15:06:04 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ int	ft_listsize(t_stack *lst)
  * @param content The content parameter is an integer value that will be 
  * assigned to the "nbr" field of the newly created t_stack struct.
  * 
- * @return The function `ft_stack_new` is returning a pointer to a newly 
+ * @return The function `ft_new_stack` is returning a pointer to a newly 
  * created `t_stack` structure.
  */
-t_stack	*ft_stack_new(int content)
+t_stack	*ft_new_stack(int content)
 {
 	t_stack	*new;
 

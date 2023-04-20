@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/19 18:04:11 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/20 18:19:37 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
+			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'B'))
+				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'A');
 			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
 			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'A');
-			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'B'))
-				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'A');
 			else
 				tmp = tmp->next;
 		}
@@ -89,16 +89,20 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
-				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'A'))
-				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'B');
 			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'B');
+			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
+			{
+				//!printf("entra\n");
+				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
+				//!printf("entra\n");
+			}
+			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'A'))
+				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'B');
 			else
 				tmp = tmp->next;
 		}
-		//printf("estack b %ld\n", (*stack_b)->nbr);
+		//!printf("estack b %ld\n", (*stack_b)->nbr);
 	}
 	return (stack_a);
 }

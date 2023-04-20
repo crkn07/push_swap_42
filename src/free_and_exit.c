@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:19:15 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/19 18:29:27 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/20 19:57:21 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,21 @@ void	ft_free_stack(t_stack **stack)
 	}
 }
 
-//* libera un string cuando se pasa entre comillas 
-void	free_str(char **lst)
+/**
+ * The function frees the memory allocated for a matrix of strings.
+ * 
+ * @param c c is a pointer to a pointer of characters, which represents a 2D matrix
+ * (array of strings).
+ */
+void	free_matrix(char **c)
 {
-	char	*n1;
+	int	i;
 
-	if (!lst)
-		return ;
-	while (*lst)
+	i = 0;
+	while (c[i])
 	{
-		n1 = *lst;
-		lst++;
-		free(n1);
+		free(c[i]);
+		i++;
 	}
-	*lst = NULL;
+	free (c);
 }
