@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:59:07 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 18:19:24 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/20 21:47:45 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,12 @@ int	do_revrot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
 	}
 	if (c == 'B')
 	{
-		//!printf("entra\n");
 		while ((*stack_b)->nbr != j && checkplace_instack_a(*stack_a, j) > 0)
 			ft_reverse_rotate_both(stack_a, stack_b);
 		while ((*stack_b)->nbr != j)
 			ft_reverse_rotate(stack_b, 1);
 		while (checkplace_instack_a(*stack_a, j) > 0)
-		{
-			//!printf("entra o no\n");
 			ft_reverse_rotate(stack_a, 0);
-		}
 		ft_push_ab(stack_a, stack_b, 0);
 	}
 	return (-1);

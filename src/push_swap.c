@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 20:05:12 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/20 22:17:03 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,9 @@ int	ft_atoi_ps(char *str)
 		i++;
 	}
 	if ((sign * j) > 2147483647 || (sign * j) < -2147483648)
-		exit_error("the number must be between the MAX and MIN value of int\n");
+		exit_error("numbers must be between the MAX and MIN value of int\n");
 	return (sign * j);
 }
-	//!printf("sign = %lld\n", j);
 
 int	ft_is_nbr_space_valid(char *str)
 {
@@ -51,7 +50,8 @@ int	ft_is_nbr_space_valid(char *str)
 	{
 		if (str[i] == ' ' || ft_isdigit(str[i]) == 1)
 			i++;
-		else if (i == 0 && ((str[i] == '-' || str[i] == '+') && ft_isdigit(str[i + 1]) == 1))
+		else if (i == 0 && ((str[i] == '-' || str[i] == '+')
+			&& ft_isdigit(str[i + 1]) == 1))
 			i++;
 		else
 			return (0);
@@ -60,16 +60,14 @@ int	ft_is_nbr_space_valid(char *str)
 }
 
 /**
- * This function creates a stack by parsing command line arguments and adding them
- * to the stack.
- * 
- * @param argc The number of arguments passed to the program, including the name of
- * the program itself.
+ * This function creates a stack by parsing command line arguments and adding
+ * them to the stack.
+ *
+ * @param argc The number of arguments passed to the program.
  * @param argv argv is a pointer to an array of strings, where each string
  * represents a command line argument passed to the program.
- * 
- * @return The function `create_stack` is returning a pointer to a `t_stack`
- * struct, which represents a stack data structure.
+ *
+ * @return The function returns a pointer to a stack data structure.
  */
 t_stack	*create_stack(int argc, char **argv)
 {
@@ -78,7 +76,7 @@ t_stack	*create_stack(int argc, char **argv)
 	int			j;
 	int			y;
 	char		**tmp;
-	
+
 	i = 1;
 	stack_a = NULL;
 	while (i < argc)
@@ -96,15 +94,33 @@ t_stack	*create_stack(int argc, char **argv)
 	}
 	return (stack_a);
 }
+
+int	duplicate_nbr(t_stack *stack_a)
+{
+	t_stack	*tmp;
+
+	while (stack_a)
+	{
+		tmp = stack_a->next;
+		while (tmp)
+		{
+			if (stack_a->nbr == tmp->nbr)
+				return (1);
+			tmp = tmp->next;
+		}
+		stack_a = stack_a->next;
+	}
+	return (0);
+}
+
 /* void	ft_leaks()
 {
 	system("leaks -q push_swap");
 } */
-
 int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
-	
+
 	//!atexit(ft_leaks);
 	if (argc < 2)
 		exit_error("Invalid numbers of arguments\n");
@@ -116,12 +132,13 @@ int	main(int argc, char **argv)
 	}
 	if (!ft_is_sorted(stack_a))
 		sort_with_quicksort(&stack_a);
-	while (stack_a)
-	{
-		printf(ORANGE"Stack a: %li\n"RESET, stack_a->nbr);
-		stack_a = stack_a->next;
-	}
 	ft_free_stack(&stack_a);
 	//!system("leaks push_swap");
 	return (0);
 }
+
+/* 	while (stack_a)
+	{
+		printf(ORANGE"Stack a: %li\n"RESET, stack_a->nbr);
+		stack_a = stack_a->next;
+	} */

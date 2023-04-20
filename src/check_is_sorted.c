@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 18:19:37 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 01:02:46 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@
  * The function checks if a given stack is sorted in ascending order.
  *
  * @param stack_a `stack_a` is a pointer to the top of a stack data structure.
- * The function `ft_is_sorted` checks if the elements in the stack are sorted
- * in ascending order.
  *
- * @return The function `ft_is_sorted` is returning an integer value of 1 if
- * the stack `stack_a` is sorted in ascending order, and 0 otherwise.
+ * @return The function returns an integer value of 1 if the stack `a` is
+ * sorted in ascending order, and 0 otherwise.
  */
 int	ft_is_sorted(t_stack *stack_a)
 {
@@ -50,9 +48,9 @@ void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
-			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'B'))
+			else if (i == times_rota_revrotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'A');
-			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'B'))
+			else if (i == times_revrot_both(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
 			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'A');
@@ -62,7 +60,7 @@ void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-t_stack	*sorted_stack_b(t_stack **stack_a)
+t_stack	*sort_stack_b(t_stack **stack_a)
 {
 	t_stack	*stack_b;
 
@@ -89,20 +87,15 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 		{
 			if (i == times_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_rot_a_revrotb(*stack_a, *stack_b, tmp->nbr, 'A'))
+			else if (i == times_rota_revrotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'B');
-			else if (i == times_reverse_rotate_stacks(*stack_a, *stack_b, tmp->nbr, 'A'))
-			{
-				//!printf("entra\n");
+			else if (i == times_revrot_both(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
-				//!printf("entra\n");
-			}
 			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'B');
 			else
 				tmp = tmp->next;
 		}
-		//!printf("estack b %ld\n", (*stack_b)->nbr);
 	}
 	return (stack_a);
 }

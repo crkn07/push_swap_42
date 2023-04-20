@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/20 16:27:02 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/21 00:48:49 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,12 +23,12 @@ LIBFT = ./libft/libft.a
 
 CC = gcc
 
-CFLAGS = -I inc -I libft -Wall -Wextra -Werror 
+CFLAGS = -I inc -I libft -Wall -Wextra -Werror
 
-SRC = push_swap.c exit_msg.c list_stack_utils.c list_stack_utils2.c \
-		free_and_exit.c check_numbers.c check_is_sorted.c movements.c \
-		movements2.c sort_quicksort.c checkindex_instack.c \
-		rotate_and_push_stacks.c what_stack_rotate.c \
+SRC = push_swap.c list_stack_utils.c list_stack_utils2.c free_and_exit.c \
+		check_is_sorted.c movements.c movements2.c sort_quicksort.c \
+		checkindex_instack.c rotate_and_push_stacks.c what_stack_rotate.c \
+		times_types_rotations.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
@@ -41,7 +41,7 @@ make_lib:
 
 $(DOT_O):
 	@mkdir $(DOT_O)
-# The -p flag will create nested directories, but only if they don't 
+# The -p flag will create nested directories, but only if they don't
 # exist already.
 
 $(DOT_O)/%.o: $(SRC_PATH)/%.c | $(DOT_O)

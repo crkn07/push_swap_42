@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 15:58:58 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/19 18:04:34 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 00:53:30 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ void	sort_three_numbers(t_stack **stack_a)
 		ft_swap_ab(stack_a, 0);
 }
 
+/**
+ * The function sorts a stack using the quicksort algorithm.
+ *
+ * @param stack_a is a pointer to a stack of integers that needs to be
+ * sorted using the quicksort algorithm.
+ */
 void	sort_with_quicksort(t_stack **stack_a)
 {
 	t_stack	*stack_b;
@@ -41,7 +47,7 @@ void	sort_with_quicksort(t_stack **stack_a)
 		ft_swap_ab(stack_a, 0);
 	else
 	{
-		stack_b = sorted_stack_b(stack_a);
+		stack_b = sort_stack_b(stack_a);
 		stack_a = sort_stack_a(stack_a, &stack_b);
 		i = index_in_stack(*stack_a, ft_min_int(*stack_a));
 		if (i < ft_listsize(*stack_a) - i)
