@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 00:47:26 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/21 00:48:09 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:10:16 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,16 @@ int	times_revrot_both(t_stack *stack_a, t_stack *stack_b, int j, char c)
 	{
 		if (checkplace_instack(stack_b, j))
 			i = ft_listsize(stack_b) - checkplace_instack(stack_b, j);
-		if ((i < (ft_listsize(stack_a) - index_in_stack(stack_a, j))) && index_in_stack(stack_a, j))
+		if ((i < (ft_listsize(stack_a) - index_in_stack(stack_a, j)))
+			&& index_in_stack(stack_a, j))
 			i = ft_listsize(stack_a) - index_in_stack(stack_a, j);
 	}
 	else if (c == 'A')
 	{
 		if (checkplace_instack_a(stack_a, j))
 			i = ft_listsize(stack_a) - checkplace_instack_a(stack_a, j);
-		if ((i < (ft_listsize(stack_b) - index_in_stack(stack_b, j))) && index_in_stack(stack_b, j))
+		if ((i < (ft_listsize(stack_b) - index_in_stack(stack_b, j)))
+			&& index_in_stack(stack_b, j))
 			i = ft_listsize(stack_b) - index_in_stack(stack_b, j);
 	}
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 21:34:39 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 22:25:12 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:02:54 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	index_in_stack(t_stack *stack, int num)
  */
 int	checkplace_instack_a(t_stack *stack_a, int nbr_push)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	i = 1;
 	if (nbr_push < stack_a->nbr && nbr_push > ft_listlast(stack_a)->nbr)
@@ -68,8 +68,8 @@ int	checkplace_instack_a(t_stack *stack_a, int nbr_push)
 
 int	checkplace_instack(t_stack *stack, int nbr_push)
 {
-	int	i;
-	t_stack *tmp;
+	int		i;
+	t_stack	*tmp;
 
 	i = 1;
 	if (nbr_push > stack->nbr && nbr_push < ft_listlast(stack)->nbr)

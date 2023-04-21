@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 21:52:21 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:01:15 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	ft_stacklist_add_front(t_stack **stack, t_stack *new_node);
 int		ft_atoi_ps(char *str);
 t_stack	*ft_new_stack(int content);
 t_stack	*ft_listlast(t_stack *lst);
-//!void	free_str(char **lst);
 void	free_matrix(char **c);
 void	ft_free_stack(t_stack **stack);
 int		duplicate_nbr(t_stack *a);
@@ -90,7 +89,7 @@ int		times_rota_revrotb(t_stack *stack_1, t_stack *stack_2, int j, char c);
 int		what_type_rotate_ab(t_stack *stack_a, t_stack *stack_b);
 int		what_type_rotate_ba(t_stack *stack_a, t_stack *stack_b);
 int		do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
-int		do_revrot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
+int		do_rvrt_psh_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c);
 int		do_revrot_a_rev_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 int		do_rot_a_revrot_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);

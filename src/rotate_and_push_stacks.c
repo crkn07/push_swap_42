@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 12:59:07 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 21:47:45 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:08:50 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
 	if (c == 'A')
 	{
 		while ((*stack_a)->nbr != j && checkplace_instack(*stack_b, j) > 0)
-			ft_rotate_ab(stack_a,  stack_b);
+			ft_rotate_ab(stack_a, stack_b);
 		while ((*stack_a)->nbr != j)
 			ft_rotate(stack_a, 0);
 		while (checkplace_instack(*stack_b, j) > 0)
@@ -27,7 +27,7 @@ int	do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
 	if (c == 'B')
 	{
 		while ((*stack_b)->nbr != j && checkplace_instack_a(*stack_a, j) > 0)
-			ft_rotate_ab(stack_a,  stack_b);
+			ft_rotate_ab(stack_a, stack_b);
 		while ((*stack_b)->nbr != j)
 			ft_rotate(stack_b, 1);
 		while (checkplace_instack_a(*stack_a, j) > 0)
@@ -37,7 +37,7 @@ int	do_rot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
 	return (-1);
 }
 
-int	do_revrot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
+int	do_rvrt_psh_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
 {
 	if (c == 'A')
 	{
@@ -47,7 +47,7 @@ int	do_revrot_push_stacks(t_stack **stack_a, t_stack **stack_b, int j, char c)
 			ft_reverse_rotate(stack_a, 0);
 		while (checkplace_instack(*stack_b, j) > 0)
 			ft_reverse_rotate(stack_b, 1);
-		ft_push_ab(stack_a, stack_b,  1);
+		ft_push_ab(stack_a, stack_b, 1);
 	}
 	if (c == 'B')
 	{
@@ -82,6 +82,7 @@ int	do_revrot_a_rev_b(t_stack **stack_a, t_stack **stack_b, int j, char c)
 	}
 	return (-1);
 }
+
 int	do_rot_a_revrot_b(t_stack **stack_a, t_stack **stack_b, int j, char c)
 {
 	if (c == 'A')

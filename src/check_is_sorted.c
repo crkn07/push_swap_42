@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 14:19:33 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/21 01:02:46 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:01:15 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_sort_untill_3members(t_stack **stack_a, t_stack **stack_b)
 			else if (i == times_rota_revrotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'A');
 			else if (i == times_revrot_both(*stack_a, *stack_b, tmp->nbr, 'B'))
-				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'A');
+				i = do_rvrt_psh_stacks(stack_a, stack_b, tmp->nbr, 'A');
 			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'B'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'A');
 			else
@@ -90,7 +90,7 @@ t_stack	**sort_stack_a(t_stack **stack_a, t_stack **stack_b)
 			else if (i == times_rota_revrotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_rot_a_revrot_b(stack_a, stack_b, tmp->nbr, 'B');
 			else if (i == times_revrot_both(*stack_a, *stack_b, tmp->nbr, 'A'))
-				i = do_revrot_push_stacks(stack_a, stack_b, tmp->nbr, 'B');
+				i = do_rvrt_psh_stacks(stack_a, stack_b, tmp->nbr, 'B');
 			else if (i == times_revrota_rotb(*stack_a, *stack_b, tmp->nbr, 'A'))
 				i = do_revrot_a_rev_b(stack_a, stack_b, tmp->nbr, 'B');
 			else

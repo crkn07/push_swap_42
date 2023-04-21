@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 22:17:03 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:20:50 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_is_nbr_space_valid(char *str)
 		if (str[i] == ' ' || ft_isdigit(str[i]) == 1)
 			i++;
 		else if (i == 0 && ((str[i] == '-' || str[i] == '+')
-			&& ft_isdigit(str[i + 1]) == 1))
+				&& ft_isdigit(str[i + 1]) == 1))
 			i++;
 		else
 			return (0);
@@ -116,24 +116,24 @@ int	duplicate_nbr(t_stack *stack_a)
 /* void	ft_leaks()
 {
 	system("leaks -q push_swap");
+	//!atexit(ft_leaks);
+	//!system("leaks push_swap");
 } */
 int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
 
-	//!atexit(ft_leaks);
 	if (argc < 2)
 		exit_error("Invalid numbers of arguments\n");
 	stack_a = create_stack(argc, argv);
 	if (!stack_a || duplicate_nbr(stack_a))
 	{
 		ft_free_stack(&stack_a);
-		exit_error("no stack o nº duplicado");
+		exit_error("duplicated number or no stack");
 	}
 	if (!ft_is_sorted(stack_a))
 		sort_with_quicksort(&stack_a);
 	ft_free_stack(&stack_a);
-	//!system("leaks push_swap");
 	return (0);
 }
 

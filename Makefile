@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/21 00:48:49 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/21 13:15:20 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ LIBFT = ./libft/libft.a
 
 CC = gcc
 
-CFLAGS = -I inc -I libft -Wall -Wextra -Werror
+CFLAGS = -I inc -I libft -Wall -Wextra -Werror -g -fsanitize=address
 
 SRC = push_swap.c list_stack_utils.c list_stack_utils2.c free_and_exit.c \
 		check_is_sorted.c movements.c movements2.c sort_quicksort.c \
@@ -32,12 +32,19 @@ SRC = push_swap.c list_stack_utils.c list_stack_utils2.c free_and_exit.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
 
-OBJS =  $(addprefix $(DOT_O)/, $(SRC:%.c=%.o))
+OBJS = $(addprefix $(DOT_O)/, $(SRC:%.c=%.o))
 
 all: make_lib $(NAME) $(DOT_O)
 
 make_lib:
+	$(PURPLE) COMPILING LIBFT... $(RESET)
 	@make -sC ./libft
+	$(PURPLE) COMPILING PUSH_SWAP... $(RESET)
+
+
+$(NAME): $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(GREEN) "\n👍🏽push_swap succesfully compiled!👍🏽\n " $(RESET)
 
 $(DOT_O):
 	@mkdir $(DOT_O)
@@ -47,21 +54,18 @@ $(DOT_O):
 $(DOT_O)/%.o: $(SRC_PATH)/%.c | $(DOT_O)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	$(GREEN) "\n👍🏽push_swap succesfully compiled!👍🏽\n " $(RESET)
-
 clean:
 	$(PURPLE) CLEANING... $(RESET)
 	@rm -f $(OBJS)
 	@rm -rf $(DOT_O)
 	$(PURPLE) CLEANING libft... $(RESET)
 	@make fclean -C ./libft
-	$(GREEN) "CLEAN COMPLETE" $(RESET)
+	$(GREEN) "CLEAN COMPLETE\n" $(RESET)
 
 fclean: clean
 
-re: fclean all
+re: fclean
+	@make -s all
 
 # COLORS #
 #
