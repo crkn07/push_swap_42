@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/21 12:20:50 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:37:17 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,24 +119,6 @@ int	duplicate_nbr(t_stack *stack_a)
 	//!atexit(ft_leaks);
 	//!system("leaks push_swap");
 } */
-int	main(int argc, char **argv)
-{
-	t_stack		*stack_a;
-
-	if (argc < 2)
-		exit_error("Invalid numbers of arguments\n");
-	stack_a = create_stack(argc, argv);
-	if (!stack_a || duplicate_nbr(stack_a))
-	{
-		ft_free_stack(&stack_a);
-		exit_error("duplicated number or no stack");
-	}
-	if (!ft_is_sorted(stack_a))
-		sort_with_quicksort(&stack_a);
-	ft_free_stack(&stack_a);
-	return (0);
-}
-
 /* 	while (stack_a)
 	{
 		printf(ORANGE"Stack a: %li\n"RESET, stack_a->nbr);

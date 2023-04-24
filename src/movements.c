@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 19:04:11 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/21 00:35:18 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:28:42 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,12 @@ void	ft_swap(t_stack **stack, int c)
 		write(1, "sb\n", 3);
 }
 
-/**
- * This function swaps the top two elements of a stack based on a
- * given parameter.
- *
- * @param stack A pointer to a stack structure which contains an array of
- * integers and information about the size and top index of the stack.
- * @param c determines which swap operation to perform. If c is 0, it swaps
- * the stack A. If is 1, swap stack B and if is 2, swap both stacks.
- */
-void	ft_swap_ab(t_stack **stack, int c)
+void	ft_swap_ab(t_stack **stack_a, t_stack **stack_b, int c)
 {
-	if (c == 0)
-		ft_swap(stack, 0);
-	if (c == 1)
-		ft_swap(stack, 1);
 	if (c == 2)
 	{
-		ft_swap(stack, 2);
-		ft_swap(stack, 2);
+		ft_swap(stack_a, 2);
+		ft_swap(stack_b, 2);
 		write(1, "ss\n", 3);
 	}
 }

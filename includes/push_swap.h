@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/21 12:01:15 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/24 16:26:08 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
+# include "../libft/get_next_line.h"
 
 //===SETTINGS COLORS===/
 //===Color font code===/
@@ -55,10 +56,10 @@ typedef struct s_stack
 	long			nbr;
 	long			index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
 void	exit_error(char *msg);
+t_stack	*create_stack(int argc, char **argv);
 void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node);
 void	ft_stacklist_add_front(t_stack **stack, t_stack *new_node);
 int		ft_atoi_ps(char *str);
@@ -71,7 +72,8 @@ int		ft_is_sorted(t_stack *stack_a);
 void	sort_three_numbers(t_stack **stack_a);
 int		ft_listsize(t_stack *lst);
 void	ft_push_ab(t_stack **stack_a, t_stack **stack_b, int c);
-void	ft_swap_ab(t_stack **stack, int c);
+void	ft_swap(t_stack **stack, int c);
+void	ft_swap_ab(t_stack **stack_a, t_stack **stack_b, int c);
 void	ft_rotate(t_stack **stack, int c);
 void	ft_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void	ft_reverse_rotate(t_stack **stack, int c);
@@ -95,5 +97,9 @@ int		do_rot_a_revrot_b(t_stack **stack_a, t_stack **stack_b, int j, char c);
 void	ft_reverse_rotate_both(t_stack **stack_a, t_stack **stack_b);
 void	sort_with_quicksort(t_stack **stack_a);
 int		ft_is_nbr_space_valid(char *str);
+void	ft_checker_error(char *msg);
+char	*check_moves(t_stack **stack_a, t_stack **stack_b, char *line);
+void	checker(t_stack **stack_a, t_stack **stack_b, char *line);
+
 
 #endif
