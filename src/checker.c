@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 20:46:09 by yogun             #+#    #+#             */
-/*   Updated: 2023/04/25 15:13:13 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/25 16:45:13 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ char	*check_moves(t_stack **stack_a, t_stack **stack_b, char *line)
 	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
 		ft_push_ab(stack_a, stack_b, 0);
 	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
-		ft_push_ab(stack_b, stack_a, 1);
+	{
+		ft_push_ab(stack_a, stack_b, 1);
+		printf("entra\n");
+	}
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
 		ft_swap_ab(stack_a, stack_b, 2);
 	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
