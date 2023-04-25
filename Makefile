@@ -5,66 +5,86 @@
 #                                                     +:+ +:+         +:+      #
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/24 15:10:03 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/24 16:44:30 by crtorres         ###   ########.fr        #
+#    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
+#    Updated: 2023/04/25 15:12:21 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 NAME = push_swap
 
-NAME_BONUS = checker
+BONUS = checker
 
 SRC_PATH = ./src/
 
-BONUS_PATH = ./checker/
 
 INC = ./includes/
+
+DOT_O = _objFiles/
+DOT_O2 = _objFiles2/
 
 LIBFT = ./libft/libft.a
 
 CC = gcc
 
-CFLAGS = -I inc -I libft -Wall -Wextra -Werror
+CFLAGS = -I inc -I libft -Wall -Wextra -Werror -g -fsanitize=address
 
 SRC = push_swap.c list_stack_utils.c list_stack_utils2.c free_and_exit.c \
 		check_is_sorted.c movements.c movements2.c sort_quicksort.c \
 		checkindex_instack.c rotate_and_push_stacks.c what_stack_rotate.c \
-		times_types_rotations.c \
+		times_types_rotations.c main.c\
 
-SRC_MAIN = main.c \
-
-BONUS_SRC = checker.c \
+BONUS_SRC = push_swap.c list_stack_utils.c list_stack_utils2.c free_and_exit.c \
+		check_is_sorted.c movements.c movements2.c sort_quicksort.c \
+		checkindex_instack.c rotate_and_push_stacks.c what_stack_rotate.c \
+		times_types_rotations.c checker.c \
 
 SRCS = $(addprefix $(SRC_PATH), $(SRC))
-SRC_MN = $(addprefix $(SRC_PATH), $(SRC_MAIN))
-SRCS_BONUS = $(addprefix $(BONUS_PATH), $(BONUS_SRC))
 
-OBJS = $(SRCS:%.c=%.o) $(SRC_MN:%.c=%.o)
+OBJS = $(addprefix $(DOT_O)/, $(SRC:%.c=%.o))
 
-OBJS_BONUS = $(SRCS_BONUS:.c=.o)
+SRCS_BONUS = $(addprefix $(SRC_PATH), $(BONUS_SRC))
 
-all: $(NAME)
+OBJS_B = $(addprefix $(DOT_O2)/, $(BONUS_SRC:%.c=%.o))
 
-bonus: $(NAME_BONUS)
+	
+all: make_lib $(NAME) $(DOT_O)
 
-$(NAME): $(OBJS)
+bonus: make_lib $(BONUS)
+
+make_lib:
 	$(PURPLE) COMPILING LIBFT... $(RESET)
 	@make -sC ./libft
 	$(PURPLE) COMPILING PUSH_SWAP... $(RESET)
+
+$(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	$(GREEN) "\n👍🏽push_swap succesfully compiled!👍🏽\n " $(RESET)
 
-$(NAME_BONUS): $(OBJS_BONUS)
-	$(PURPLE) COMPILING LIBFT... $(RESET)
-	@make -sC ./libft
+$(BONUS): $(OBJS_B)
+	@$(CC) $(CFLAGS) $(OBJS_B) $(LIBFT) -o $(BONUS)
 	$(PURPLE) COMPILING BONUS... $(RESET)
-	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) -o $(NAME_BONUS)
+
+$(DOT_O):
+	@mkdir -p $(DOT_O)
+$(DOT_O2):
+	@mkdir -p $(DOT_O2)
+# The -p flag will create nested directories, but only if they don't
+# exist already.
+
+$(DOT_O)/%.o: $(SRC_PATH)/%.c | $(DOT_O)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(DOT_O2)/%.o: $(SRC_PATH)/%.c | $(DOT_O2)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 clean:
 	$(PURPLE) CLEANING... $(RESET)
 	@rm -f $(OBJS)
-	@rm -f $(OBJS_BONUS)
+	@rm -rf $(DOT_O)
+	@rm -rf $(NAME)
+	@rm -rf $(BONUS)
 	$(PURPLE) CLEANING libft... $(RESET)
 	@make fclean -C ./libft
 	$(GREEN) "CLEAN COMPLETE\n" $(RESET)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/24 12:25:34 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/24 16:30:36 by crtorres         ###   ########.fr       */
+/*   Created: 2022/08/03 20:46:09 by yogun             #+#    #+#             */
+/*   Updated: 2023/04/25 15:13:13 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,15 @@ int	main(int argc, char **argv)
 
 	stack_b = NULL;
 	stack_a = create_stack(argc, argv);
-	if (!stack_a || duplicate_nbr(stack_a))
+	if (duplicate_nbr(stack_a))
 	{
 		ft_free_stack(&stack_a);
 		exit_error("duplicated number or no stack");
+	}
+	if (!stack_a)
+	{
+		ft_free_stack(&stack_a);
+		exit (0);
 	}
 	line = get_next_line(0);
 	if (!line && !ft_is_sorted(stack_a))

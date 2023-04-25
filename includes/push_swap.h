@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 15:27:59 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/24 16:26:08 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:04:17 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,6 @@ int		ft_is_nbr_space_valid(char *str);
 void	ft_checker_error(char *msg);
 char	*check_moves(t_stack **stack_a, t_stack **stack_b, char *line);
 void	checker(t_stack **stack_a, t_stack **stack_b, char *line);
-
+int		main(int argc, char **argv);
 
 #endif
