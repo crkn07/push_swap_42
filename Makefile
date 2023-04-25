@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/25 15:12:21 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/25 16:37:50 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ clean:
 	$(PURPLE) CLEANING... $(RESET)
 	@rm -f $(OBJS)
 	@rm -rf $(DOT_O)
+	@rm -rf $(DOT_O2)
 	@rm -rf $(NAME)
 	@rm -rf $(BONUS)
 	$(PURPLE) CLEANING libft... $(RESET)
