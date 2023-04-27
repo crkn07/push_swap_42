@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 20:46:09 by yogun             #+#    #+#             */
-/*   Updated: 2023/04/25 20:46:38 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:16:17 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	main(int argc, char **argv)
 	if (duplicate_nbr(stack_a))
 	{
 		ft_free_stack(&stack_a);
-		exit_error("duplicated number or no stack");
+		exit_error("error\n");
 	}
 	if (!stack_a)
 		exit (0);

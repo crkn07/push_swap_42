@@ -6,7 +6,7 @@
 #    By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/28 15:30:25 by crtorres          #+#    #+#              #
-#    Updated: 2023/04/25 21:16:12 by crtorres         ###   ########.fr        #
+#    Updated: 2023/04/27 15:04:30 by crtorres         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,10 @@ all: make_lib $(NAME) $(DOT_O)
 bonus: make_lib $(BONUS)
 
 make_lib:
-	$(PURPLE) COMPILING LIBFT... $(RESET)
 	@make -sC ./libft
 
 $(NAME): $(OBJS)
+	$(PURPLE) COMPILING LIBFT... $(RESET)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 	$(GREEN) "\n👍🏽push_swap succesfully compiled!👍🏽\n " $(RESET)
 

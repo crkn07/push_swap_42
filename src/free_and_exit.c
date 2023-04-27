@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 17:19:15 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/21 12:06:09 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/27 11:46:36 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,6 @@ void	free_matrix(char **c)
 
 void	exit_error(char *msg)
 {
-	ft_putstr_fd(RED "-*-*-*-*-*-*-*-*-*-*-\n\n" RESET, 2);
-	ft_putstr_fd(BG_RED, 2);
-	ft_putstr_fd("Error", 2);
-	ft_putstr_fd(RESET, 2);
-	ft_putstr_fd("\n\n", 2);
-	ft_putstr_fd(RED, 2);
 	ft_putstr_fd(msg, 2);
-	ft_putstr_fd("\n", 2);
-	ft_putstr_fd("-*-*-*-*-*-*-*-*-*-*-*-*-\n", 2);
-	ft_putstr_fd(RESET, 2);
 	exit (EXIT_FAILURE);
 }

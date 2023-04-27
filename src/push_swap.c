@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:22:02 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/24 16:37:17 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:11:48 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_atoi_ps(char *str)
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (ft_is_nbr_space_valid(str) == 0)
-		exit_error("No number\n");
+		exit_error("error\n");
 	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -37,7 +37,7 @@ int	ft_atoi_ps(char *str)
 		i++;
 	}
 	if ((sign * j) > 2147483647 || (sign * j) < -2147483648)
-		exit_error("numbers must be between the MAX and MIN value of int\n");
+		exit_error("error\n");
 	return (sign * j);
 }
 
@@ -46,6 +46,8 @@ int	ft_is_nbr_space_valid(char *str)
 	int	i;
 
 	i = 0;
+	if (ft_strlen(str) > 11)
+		exit_error("error\n");
 	while (str[i])
 	{
 		if (str[i] == ' ' || ft_isdigit(str[i]) == 1)
@@ -81,6 +83,8 @@ t_stack	*create_stack(int argc, char **argv)
 	stack_a = NULL;
 	while (i < argc)
 	{
+		if (argv[i][0] == '\0')
+			exit_error("error\n");
 		tmp = ft_split(argv[i], 32);
 		y = 0;
 		while (tmp[y])
@@ -112,15 +116,3 @@ int	duplicate_nbr(t_stack *stack_a)
 	}
 	return (0);
 }
-
-/* void	ft_leaks()
-{
-	system("leaks -q push_swap");
-	//!atexit(ft_leaks);
-	//!system("leaks push_swap");
-} */
-/* 	while (stack_a)
-	{
-		printf(ORANGE"Stack a: %li\n"RESET, stack_a->nbr);
-		stack_a = stack_a->next;
-	} */

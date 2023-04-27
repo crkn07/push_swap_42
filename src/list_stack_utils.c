@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:26:50 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/20 23:35:31 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:16:38 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_stack	*ft_new_stack(int content)
 
 	new = malloc(sizeof (t_stack));
 	if (!new)
-		exit_error("no hay nuevo");
+		exit_error("error\n");
 	new->nbr = content;
 	new->next = NULL;
 	return (new);
