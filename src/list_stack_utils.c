@@ -6,7 +6,7 @@
 /*   By: crtorres <crtorres@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:26:50 by crtorres          #+#    #+#             */
-/*   Updated: 2023/04/26 15:16:38 by crtorres         ###   ########.fr       */
+/*   Updated: 2023/05/30 17:12:27 by crtorres         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ void	ft_stacklist_add_back(t_stack **stack, t_stack *new_node)
 		(ft_listlast(*stack))->next = new_node;
 }
 
+/**
+ * The function calculates the size of a linked list.
+ * 
+ * @param lst lst is a pointer to the head of a linked list of type t_stack.
+ * 
+ * @return The function `ft_listsize` is returning the size of the linked list
+ * `lst`.
+ */
 int	ft_listsize(t_stack *lst)
 {
 	size_t	size;
